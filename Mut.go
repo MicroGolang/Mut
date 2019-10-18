@@ -5,12 +5,12 @@
 ** @Filename:				Mutex.go
 **
 ** @Last modified by:		Tbouder
-** @Last modified time:		Friday 18 October 2019 - 13:31:44
+** @Last modified time:		Friday 18 October 2019 - 13:34:20
 *******************************************************************************/
 
 package		mut
 
-import		"github.com/microgolang/sync"
+import		"sync"
 import		"github.com/microgolang/logs"
 
 var		MUTEXES = map[string]MutArr{}
