@@ -5,12 +5,12 @@
 ** @Filename:				Mutex.go
 **
 ** @Last modified by:		Tbouder
-** @Last modified time:		Monday 14 October 2019 - 18:37:30
+** @Last modified time:		Friday 18 October 2019 - 13:31:44
 *******************************************************************************/
 
 package		mut
 
-import		"sync"
+import		"github.com/microgolang/sync"
 import		"github.com/microgolang/logs"
 
 var		MUTEXES = map[string]MutArr{}
@@ -45,6 +45,11 @@ func	Lock(uid string) {
 }
 
 func	Unlock(uid string) {
+    defer func() {
+        if r := recover(); r != nil {
+            return
+        }
+    }()
 	Element := get(uid)
 	Element.Mut.Unlock()
 	if (LOGS) {
